@@ -35,26 +35,41 @@ $(document).ready(function () {
         var $input = $("#inputName").val();
         var $li = $("<li></li>").text($input);
         $li.addClass("text-left click");
-        if ($input === ''){
+        if ($input === ""){
             alert("Bạn chưa nhập tên!");
         } else{
             $("#ulList").append($li);
+            var $btn = $("<button></button>").text("Xóa");
+            $btn.addClass("btn btn-info del");
+            $btn.attr('data-toggle','modal');
+            $btn.attr('data-target', '#myModal');
+            $li.append($btn);
+            $("#inputName").val("");
         }
-        $("#inputName").val('');
 
-        var $btn = $("<button></button>").text("Xóa");
-        $btn.addClass("btn btn-info del");
-        $btn.attr('data-toggle','modal');
-        $btn.attr('data-target', '#myModal');
-        $li.append($btn);
+
     });
-    $("#inputName").keyup(function () {
+
+    $("#inputName").keydown(function (e) {
         if(e.which == 13) {
-            $("#btnAdd").click();
+            var $input = $("#inputName").val();
+            var $li = $("<li></li>").text($input);
+            $li.addClass("text-left click");
+            if ($input === ""){
+                alert("Bạn chưa nhập tên!");
+            } else{
+                $("#ulList").append($li);
+                var $btn = $("<button></button>").text("Xóa");
+                $btn.addClass("btn btn-info del");
+                $btn.attr('data-toggle','modal');
+                $btn.attr('data-target', '#myModal');
+                $li.append($btn);
+                $("#inputName").val("");
+                return false;
+            }
         }
     });
 });
-
 
 
 
