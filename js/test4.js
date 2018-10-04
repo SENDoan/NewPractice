@@ -1,5 +1,5 @@
 
-
+////add <li> by js
 // function addName() {
 //     var li = document.createElement("LI");
 //     var inputName = document.getElementById("inputName").value;
@@ -28,8 +28,7 @@
 // }
 
 
-
-
+//add <li> by jquery
 $(document).ready(function () {
     $("#btnAdd").click(function () {
         var $input = $("#inputName").val();
@@ -37,13 +36,22 @@ $(document).ready(function () {
         $li.addClass("text-left click");
         if ($input === ""){
             alert("Bạn chưa nhập tên!");
+            return false;
         } else{
             $("#ulList").append($li);
+
+            //check completed
+            var $check = $("<input type='checkbox' id='idCb' class='btn check-completed'></input>");
+            $li.append($check);
+
+            //btn delete
             var $btn = $("<button></button>").text("Xóa");
             $btn.addClass("btn btn-info del");
             $btn.attr('data-toggle','modal');
             $btn.attr('data-target', '#myModal');
             $li.append($btn);
+
+            //reset input
             $("#inputName").val("");
         }
 
@@ -57,42 +65,90 @@ $(document).ready(function () {
             $li.addClass("text-left click");
             if ($input === ""){
                 alert("Bạn chưa nhập tên!");
+                return false;
             } else{
                 $("#ulList").append($li);
+
+                //check completed
+                var $check = $("<input type='checkbox' id='idCb' class='btn check-completed'>");
+                $li.append($check);
+
+                //btn delete
                 var $btn = $("<button></button>").text("Xóa");
                 $btn.addClass("btn btn-info del");
                 $btn.attr('data-toggle','modal');
                 $btn.attr('data-target', '#myModal');
                 $li.append($btn);
+
+                //reset input
                 $("#inputName").val("");
                 return false;
             }
         }
     });
-});
 
+    $(document).on("click", ".click", function(){
+        var $item = this;
+        $($item).addClass("current");
+        var $name = ($($item).text()).substring(0,($($item).text().length) - 3 );
+        $("#txtName").text($name);
+        $("#btnN").click(function () {
+            $($item).removeClass("current");
+            $('#myModal').modal('hide');
+        });
+        $("#btnY").click(function () {
+            if($($item).hasClass("current")){
+                $($item).remove();
+            }
+            $('#myModal').modal('hide');
+        });
 
+        // var $cb = $("#idCb");
+        // var $itemCom = $("#idCb").parent();
+        // if($cb.checked == true){
+        //     // $("#listCompleted").append($($itemCom));
+        //     $("#ulList").removeChild($($itemCom));
+        // }else{
+        //     $("#ulList").append($($itemCom));
+        // }
 
-// $("#inputName").keyup(function (e) {
-//     if(e.keyCode == 13){
-//         $("#btnAdd").click();
-//     }
-// });
+        // var $cb = $("#idCb");
+        // var $licom = $("<li></li>").text($name);
+        // if($cb.checked == true){
+        //     $("#listCompleted").append=($licom);
+        //     $("#ulList").removeChild($($item));
+        // }else{
+        //     $("#ulList").append($($item));
+        // }
 
-$(document).on("click", ".click", function(){
-    var $item = this;
-    $($item).addClass("current");
-    var $name = ($($item).text()).substring(0,($($item).text().length) - 3 );
-    $("#txtName").text($name);
-    $("#btnN").click(function () {
-        $($item).removeClass("current");
-        $('#myModal').modal('hide');
     });
-    $("#btnY").click(function () {
-        if($($item).hasClass("current")){
-            $($item).remove();
+
+    $(document).on('click','#idCb', function () {
+        var $item = this;
+        if ($($item).is(':checked')){
+            var $txtLi = ($($item).parent().text()).substr(0,($($item).parent().text().length) - 3 );
+            $("#listCompleted").append($("<li></li>").text($txtLi));
+            ($($item).parent()).remove();
         }
-        $('#myModal').modal('hide');
-    });
-});
 
+    })
+});
+//
+
+
+
+
+// $(document).on('click', "#idCb", function () {
+//     var $cb = $("#idCb");
+//     var $itemCom = $("#idCb").parent();
+//     $($itemCom).addClass("moveCom");
+//     if($cb.checked == true){
+//         if($($itemCom).hasClass("moveCom")){
+//             $("#listCompleted").append($($itemCom));
+//         }
+//         $("#ulList").removeChild($($itemCom));
+//     }else{
+//         $($itemCom).removeClass("moveCom");
+//         $("#ulList").append($($itemCom));
+//     }
+// })

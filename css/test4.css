@@ -3,13 +3,21 @@
     background-color: lightgoldenrodyellow;
     padding: 2% 1% 1%;
 }
+.bg-list-completed{
+    background-color: white;
+    color: blue;
+    margin: 20px auto;
+}
 .bg-list{
     background-color: lavenderblush;
-    width: 50%;
+}
+.check-completed{
+    position: absolute;
+    right: 72px;
 }
 ul li{
     position: relative;
-    padding: 10px 10%;
+    padding: 10px 5%;
     margin: 0;
 }
 ul li:nth-child(odd){
