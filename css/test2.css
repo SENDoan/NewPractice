@@ -1,0 +1,94 @@
+.main-img{
+    position: relative;
+    width: 98%;
+    max-height: 500px;
+    min-height: 200px;
+    margin: 1%;
+    border: 1px solid white;
+}
+span.icon-star-lg{
+    color: orangered;
+}
+ul.main-text{
+    padding: 15% 0;
+}
+.text-style{
+    background-image: url("../images/pic8.png");
+    background-size: cover;
+}
+.font-style-hd{
+    font-weight: bold;
+}
+.font-style-gl{
+    font-family: Bahnschrift;
+}
+.font-style-bl{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+.text-hd{
+    background-color: white;
+    opacity: 0.1%;
+    margin-left: 30%;
+    margin-right: 30%;
+}
+.text-gl{
+    color: white;
+}
+.ctn{
+    padding-top: 5%;
+    padding-bottom: 20%;
+}
+header.navbar{
+    padding-top: 20px;
+}
+ul, header.navbar{
+    margin: 0;
+}
+div.text-head{
+    border-top: 4px solid black;
+    border-bottom: 1px solid black;
+    margin-bottom: 1%;
+}
+.br-li{
+    border-bottom: 4px solid black;
+    border-top: 1px solid black;
+    width: 100%;
+    padding-left: 10px;
+    margin: 3px 0;
+}
+.ul-margin{
+    margin-left: 0;
+}
+.list-img{
+    height: 220px;
+    width: 359px;
+    padding: 5px;
+}
+.lb{
+    border-left: 4px solid black;
+    padding-left: 2%;
+    margin-bottom: 2%;
+}
+.text-row{
+    padding: 4% 0;
+}
+@media screen and (max-width: 767px){
+    .txt{
+        font-size: 18px!important;
+    }
+}
+@media screen and (max-width: 767px) {
+    .icon-star-lg{
+        font-size: 10px;
+    }
+}
+@media screen and (min-width: 768px) {
+    .icon-star-lg{
+        font-size: 20px;
+    }
+}
+@media screen and (max-width: 767px) {
+    .icon-star-sm{
+        font-size: 7px;
+    }
+}

@@ -1,0 +1,31 @@
+.bg-form{
+    width: 30%;
+    background-color: lightgoldenrodyellow;
+    padding: 2% 1% 1%;
+}
+.bg-list{
+    background-color: lavenderblush;
+    width: 50%;
+}
+ul li{
+    position: relative;
+    padding: 10px 10%;
+    margin: 0;
+}
+ul li:nth-child(odd){
+    background-color: white;
+}
+ul#ulList{
+    padding: 0;
+    margin: 20px auto;
+}
+.del{
+    position: absolute;
+    right: 9px;
+    top: 3px;
+}
+.modal-css{
+    position: fixed;
+    left: 40%;
+    top:20%;
+}
