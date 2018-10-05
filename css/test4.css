@@ -1,15 +1,15 @@
 .bg-form{
-    width: 30%;
+    width: 100%;
     background-color: lightgoldenrodyellow;
     padding: 2% 1% 1%;
 }
 .bg-list-term{
-    background-color: lightgoldenrodyellow;
+    background-color: lightgreen;
     color: blue;
     margin: 20px auto;
 }
 .bg-list-completed{
-    background-color: white;
+    background-color: lightsalmon;
     color: blue;
     margin: 20px auto;
 }
@@ -26,7 +26,7 @@ ol li{
     padding: 10px 5%;
     margin: 0;
 }
-ol li:nth-child(odd){
+ol#ulList li:nth-child(odd){
     background-color: white;
 }
 ol#ulList{
@@ -41,4 +41,15 @@ ol#ulList{
     position: fixed;
     left: 40%;
     top:20%;
+}
+@media screen and (max-width: 768px) {
+    .container, .row{
+        margin: 0;
+        padding: 0;
+    }
+}
+@media screen and (min-width: 768px) and (max-width: 991px){
+    .container{
+        width: auto!important;
+    }
 }

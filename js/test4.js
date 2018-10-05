@@ -136,7 +136,7 @@ $(document).ready(function () {
     });
 
     i = 0;
-    $("#inputName").keydown(function(){
+    $("#inputName").keypress(function(){
         i++;
         if(i == 50){
             alert("Độ dài tối đa 50 ký tự!");
