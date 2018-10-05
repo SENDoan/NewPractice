@@ -41,7 +41,7 @@ $(document).ready(function () {
             $("#ulList").append($li);
 
             //check completed
-            var $check = $("<input type='checkbox' id='idCb' class='btn check-completed'></input>");
+            var $check = $("<button id='btnCheck' class='btn check-completed'>Complete</button>");
             $li.append($check);
 
             //btn delete
@@ -53,9 +53,8 @@ $(document).ready(function () {
 
             //reset input
             $("#inputName").val("");
+            i = 0;
         }
-
-
     });
 
     $("#inputName").keydown(function (e) {
@@ -70,7 +69,7 @@ $(document).ready(function () {
                 $("#ulList").append($li);
 
                 //check completed
-                var $check = $("<input type='checkbox' id='idCb' class='btn check-completed'>");
+                var $check = $("<button id='btnCheck' class='btn check-completed'>Complete</button>");
                 $li.append($check);
 
                 //btn delete
@@ -82,6 +81,7 @@ $(document).ready(function () {
 
                 //reset input
                 $("#inputName").val("");
+                i = 0;
                 return false;
             }
         }
@@ -90,65 +90,58 @@ $(document).ready(function () {
     $(document).on("click", ".click", function(){
         var $item = this;
         $($item).addClass("current");
-        var $name = ($($item).text()).substring(0,($($item).text().length) - 3 );
+        var $name = ($($item).text()).substring(0,($($item).text().length) - 11 );
         $("#txtName").text($name);
         $("#btnN").click(function () {
             $($item).removeClass("current");
             $('#myModal').modal('hide');
         });
         $("#btnY").click(function () {
-            if($($item).hasClass("current")){
-                $($item).remove();
+            if($($item).hasClass("click")){
+                if($($item).hasClass("current")){
+                    $($item).remove();
+                }
             }
             $('#myModal').modal('hide');
         });
-
-        // var $cb = $("#idCb");
-        // var $itemCom = $("#idCb").parent();
-        // if($cb.checked == true){
-        //     // $("#listCompleted").append($($itemCom));
-        //     $("#ulList").removeChild($($itemCom));
-        // }else{
-        //     $("#ulList").append($($itemCom));
-        // }
-
-        // var $cb = $("#idCb");
-        // var $licom = $("<li></li>").text($name);
-        // if($cb.checked == true){
-        //     $("#listCompleted").append=($licom);
-        //     $("#ulList").removeChild($($item));
-        // }else{
-        //     $("#ulList").append($($item));
-        // }
-
     });
 
-    $(document).on('click','#idCb', function () {
+    $(document).on("click", ".del-complete", function(){
         var $item = this;
-        if ($($item).is(':checked')){
-            var $txtLi = ($($item).parent().text()).substr(0,($($item).parent().text().length) - 3 );
-            $("#listCompleted").append($("<li></li>").text($txtLi));
-            ($($item).parent()).remove();
+        $($item).addClass("current-complete");
+        var $name = ($($item).text()).substring(0,($($item).text().length) - 3 );
+        $("#txtName").text($name);
+        $("#btnN").click(function () {
+            $($item).removeClass("current-complete");
+            $('#myModal').modal('hide');
+        });
+        $("#btnY").click(function () {
+            if($($item).hasClass("del-complete")){
+                if($($item).hasClass("current-complete")){
+                    $($item).remove();
+                }
+            }
+            $('#myModal').modal('hide');
+        });
+    });
+
+    $(document).on('click','#btnCheck', function () {
+        var $item = this;
+        var $newli = $($item).parent();
+        $newli.addClass("del-complete");
+        $newli.removeClass("click");
+        $($item).remove();
+        $("#listCompleted").append($newli);
+        ($($item).parent()).remove();
+    });
+
+    i = 0;
+    $("#inputName").keydown(function(){
+        i++;
+        if(i == 50){
+            alert("Độ dài tối đa 50 ký tự!");
+            $("#inputName").val("");
+            i = 0;
         }
-
-    })
+    });
 });
-//
-
-
-
-
-// $(document).on('click', "#idCb", function () {
-//     var $cb = $("#idCb");
-//     var $itemCom = $("#idCb").parent();
-//     $($itemCom).addClass("moveCom");
-//     if($cb.checked == true){
-//         if($($itemCom).hasClass("moveCom")){
-//             $("#listCompleted").append($($itemCom));
-//         }
-//         $("#ulList").removeChild($($itemCom));
-//     }else{
-//         $($itemCom).removeClass("moveCom");
-//         $("#ulList").append($($itemCom));
-//     }
-// })

@@ -13,19 +13,19 @@
         <form class="bg-form container text-right">
             <div class="form-group text-left">
                 <label for="inputName">Nhập họ tên:</label>
-                <input type="text" class="form-control" id="inputName" placeholder="Nhập họ tên...">
+                <input type="text" class="form-control" id="inputName" placeholder="Nhập họ tên..." maxlength="50">
             </div>
             <input type="button" class="btn btn-primary" id="btnAdd" value="Thêm">
         </form>
         <div class="row">
-            <div class="col-sm-6">
-                <ul id="ulList" class="list-unstyled text-right text-info bg-list">
-                </ul>
+            <div class="col-sm-6 bg-list-term">
+                <h3 class="text-danger text-center text-uppercase">Danh sách tạm</h3>
+                <ol id="ulList" class="list-unstyled text-right text-info bg-list">
+                </ol>
             </div>
             <div class="col-sm-6 bg-list-completed">
                 <h3 class="text-danger text-center text-uppercase">Danh sách hoàn thành</h3>
                 <ol id="listCompleted" class=" text-left">
-
                 </ol>
             </div>
         </div>
