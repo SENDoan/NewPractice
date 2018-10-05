@@ -7,11 +7,13 @@
     background-color: lightgreen;
     color: blue;
     margin: 20px auto;
+    padding: 20px 10px;
 }
 .bg-list-completed{
     background-color: lightsalmon;
     color: blue;
     margin: 20px auto;
+    padding: 20px 10px;
 }
 .bg-list{
     background-color: lavenderblush;
